@@ -1,0 +1,36 @@
+body {
+    background-color: #97BC62FF;
+    color: #2C5F2D;
+}
+
+h1 {
+    background-color: #2C5F2D;
+    color: #97BC62FF;
+    text-align: center;
+    border-radius: 25px;
+    padding: 20px;
+    width: 90%;
+    margin: 5%;
+    margin-top: 10px;
+    margin-bottom: 2%;
+}
+
+h2 {
+    background-color: #97BC62FF;
+    color: #2C5F2D;
+    text-align: center;
+    border: solid 5px #2C5F2D;
+    border-radius: 25px;
+    padding: 20px;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}
+
+#content {
+    text-align: center;
+}
+
+label {
+    padding: 20px;
+}
