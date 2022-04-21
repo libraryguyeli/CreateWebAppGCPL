@@ -12,7 +12,7 @@ def selections():
 def result():
     db_name = 'namegen.db'
     db = sqlite3.connect(db_name, check_same_thread = False)
-    db.text_factory = str
+    # db.text_factory = str #text_factory is string by default
     db.row_factory = lambda cursor, row: row[0]
     cursor = db.cursor()
 
