@@ -11,7 +11,7 @@ def selections():
 @app.route("/result", methods = ["GET", "POST"])
 def result():
     db_name = 'namegen.db'
-    db = sqlite3.connect(db_name, check_same_thread = False)
+    db = sqlite3.connect(db_name)
     # db.text_factory = str #text_factory is string by default
     db.row_factory = lambda cursor, row: row[0]
     cursor = db.cursor()
