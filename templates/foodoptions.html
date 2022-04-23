@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Food Options
+{% endblock %}
+
+{% block body %}
+
+    Select Your Options:
+    <form action="/selectedfood" method="POST">
+
+    <h2>Restaurants</h2>
+        {% for place in restaurants %}
+            <input name="food_choice" type="checkbox" value="{{place[1]}}">{{place[1]}}</br>
+        {% else %}
+            You don't have any restaurants listed. <a href="/addafood">Add a place</a>?
+        {% endfor %}
+
+        <h2>Recipes</h2>
+        {% for recipe in recipes %}
+            <input name="food_choice" type="checkbox" value="{{recipe[1]}}"}>{{recipe[1]}}</br>
+        {% else %}
+            You don't have any meals listed. <a href="/addafood">Add a meal you like</a>?
+        {% endfor %}
+
+    <input type="submit" value="Randomize!">
+    </form>
+
+    <br><br><br>
+
+    Can't find an option? <a href="/addafood">Add it here.</a>?
+
+
+
+{% endblock %}
