@@ -31,4 +31,4 @@ def result():
     cursor.close()
     
     # Return the template with capitalized species, user-entered number for iterating through the list of names, first and last name lists
-    return render_template("result2.html", species=species.title())
+    return render_template("result2.html", species=species)
