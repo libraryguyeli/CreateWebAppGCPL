@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    IMDB Roulette
+{% endblock %}
+
+{% block body %}
+<p class="title main-title">IMDB Randomizer</p>
+<form action="/result" method="post">
+    <input type="submit" value="Randomize" class="btn-randomize btn btn-primary btn-lg btn-block">
+</form>
+{% endblock %}

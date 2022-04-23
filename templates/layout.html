@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header><title>IMDB Roulette App: {% block title %}{% endblock %}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Water+Brush">
+    
+    <style>
+    body {margin:25px;}
+
+    img {
+        height:90vh;
+        object-fit: cover;
+    }
+
+    div.container {
+        text-align: center;
+        padding: 10px 20px;
+        height:100%;
+    }
+
+    div.body {
+        height:50vh;
+    }
+    
+    p {
+        text-align:center;
+    }
+
+    .title {
+        font-size:8em;
+        margin:15px;
+        padding:10px;
+        line-height: normal;
+        border: #3c5a86 1px dotted;
+    }
+
+    .main-title{
+        font-family: "Water Brush", sans-serif;
+    }
+
+    .plot {
+        font-size:2em;
+        padding:30px;
+    }
+
+    .btn-bottom{
+        margin: 20px;
+    }
+
+    .col-md-8{
+        height:80vh;
+    }
+
+    </style>
+    </header>
+    <body>
+    <div class="body">
+        {% block body %}
+        {% endblock %}
+    </div>
+    </body>
+
+
+</html>

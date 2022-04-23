@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{poster}}" alt="{{title}}">
+    </div>
+
+    <div class="col-md-8">
+        <p class="title">{{title}}</p>
+                <p>Rating: {{rating}} &emsp; Runtime: {{runtime}} &emsp; Released: {{released}} &emsp; Genres: {{genres}} &emsp; Certificate: {{certificate}}   </p>
+                <p class="plot">{{plot}}</p>
+
+        <form action="/result" method="POST">
+            <input type="submit" class="btn btn-primary btn-lg btn-block btn-bottom" value="Try Again"> 
+        </form>
+        
+        
+    </div>
+</div>
+
+    
+
+{% endblock %}
