@@ -4,10 +4,13 @@
 
     <h2>{{ species }}</h2>
 
+    <!-- Iterate through the list of names user-entered number of times -->
     {% for i in range(number) %}
+        <!-- First name at iterated location and 0 indexed followed by last name at iterated location and 0 indexed -->
         <h3>{{ first_names[i][0] }} {{ last_names[i][0] }}</h3>
     {% endfor %}
 
+    <!-- Bootstrap button -->
     <form action="/">
         <input type="submit" class="btn btn-light" value="Try Again" style="margin-top:10px;"/>
     </form>
