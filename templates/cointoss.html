@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Coin Toss
+{% endblock %}
+
+{% block body %}
+    {% if result == 0 %}
+        You've received Heads!
+    {% else %}
+        You've received Tails!
+    {% endif %}
+
+
+{% endblock %}

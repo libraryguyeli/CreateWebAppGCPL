@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Food Options
+{% endblock %}
+
+{% block body %}
+    <h2>Restaurants</h2>
+    <form action="/addafood" method="POST">
+        <input name="restaurant" type="text">
+        <input type="submit">
+    </form>
+
+
+    <h2>Recipes</h2>
+    <form action="/addafood" method="POST">
+        <input name="recipe" type="text">
+        <input type="submit">
+    </form>
+
+
+{% endblock %}

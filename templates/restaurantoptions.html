@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Restaurant Options
+{% endblock %}
+
+{% block body %}
+    Select Your Options:
+    <form action="/selectedplace" method="POST">
+        <input name="restaurants" type="checkbox" value="Wendy's">Wendy's</br>
+        <input name="restaurants" type="checkbox" value="Arby's">Arby's</br>
+        <input name="restaurants" type="checkbox" value="Provino's">Provino's</br>
+        <input name="restaurants" type="checkbox" value="Buck's">Buck's</br>
+        <input name="restaurants" type="checkbox" value="Zaxby's">Zaxby's</br>
+        <input name="restaurants" type="checkbox" value="Captain D's">Captain D's</br>
+        <input name="restaurants" type="checkbox" value="Moe's">Moe's</br>
+        <input name="restaurants" type="checkbox" value="Jim 'N Nick's">Jim 'N Nick's</br>
+        <input type="submit">
+
+    </form>
+{% endblock %}

@@ -1,2 +1,0 @@
-# CreateWebAppGCPL
-HELLO.
