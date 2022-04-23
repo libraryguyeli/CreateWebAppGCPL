@@ -10,9 +10,7 @@ def selections():
 
 @app.route("/result", methods = ["GET", "POST"])
 def result():
-    db_name = 'namegen.db'
-    db = sqlite3.connect(db_name)
-    # db.text_factory = str #text_factory is string by default
+    db = sqlite3.connect('namegen.db')
     db.row_factory = lambda cursor, row: row[0]
     cursor = db.cursor()
 
@@ -74,4 +72,3 @@ def result():
     cursor.close()
 
     return render_template("result.html", species=species.title(), number=number, first_names=first_names, last_names=last_names)
-
