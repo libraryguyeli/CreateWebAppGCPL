@@ -1,5 +1,5 @@
 '''This app pulls fantasy names randomly from a database based on user-entered responses:
-    species, gender, number of names.'''
+    species and number of names.'''
 
 # Importing libraries
 from flask import Flask, render_template, request
@@ -35,59 +35,22 @@ def result():
 
     # Iterate based on user-entered number to return however many names
     for i in range(number):
-        # Dwarf table
-        if species == "dwarf":
-            if gender == "female":
-                first = cursor.execute("SELECT first FROM dwarf WHERE gender = 'F' ORDER BY random() LIMIT 1;")
-            else:
-                first = cursor.execute("SELECT first FROM dwarf WHERE gender = 'M' ORDER BY random() LIMIT 1;")
-            first = cursor.fetchall()
-            last = cursor.execute("SELECT last FROM dwarf ORDER BY random() LIMIT 1;")
-            last = cursor.fetchall()
-            first_names.append(first)
-            last_names.append(last)
+        
+        # Get first name
+        first = cursor.execute("SELECT first FROM " + species + " ORDER BY random() LIMIT 1;")
+        first = cursor.fetchall()
+        first_names.append(first)
 
-        # Elf table
-        if species == "elf":
-            if gender == "female":
-                first = cursor.execute("SELECT first FROM elf WHERE gender = 'F' ORDER BY random() LIMIT 1;")
-            elif gender == "male":
-                first = cursor.execute("SELECT first FROM elf WHERE gender = 'M' ORDER BY random() LIMIT 1;")
-            else:
-                first = cursor.execute("SELECT first FROM elf WHERE gender = 'N' ORDER BY random() LIMIT 1;")
-            first = cursor.fetchall()
-            last = cursor.execute("SELECT last FROM elf ORDER BY random() LIMIT 1;")
+        # Get last name, unless it is a minotaur
+        if species != "minotaur":
+            last = cursor.execute("SELECT last FROM " + species + " ORDER BY random() LIMIT 1;")
             last = cursor.fetchall()
-            first_names.append(first)
-            last_names.append(last)
-
-        # Fairy table
-        if species == "fairy":
-            if gender == "female":
-                first = cursor.execute("SELECT first FROM fairy WHERE gender = 'F' ORDER BY random() LIMIT 1;")
-            else:
-                first = cursor.execute("SELECT first FROM fairy WHERE gender = 'M' ORDER BY random() LIMIT 1;")     
-            first = cursor.fetchall()
-            last = cursor.execute("SELECT last FROM fairy ORDER BY random() LIMIT 1;")
-            last = cursor.fetchall()
-            first_names.append(first)
-            last_names.append(last)
-
-        # Minotaur table
-        if species == "minotaur":
-            if gender == "female":
-                first = cursor.execute("SELECT first FROM minotaur WHERE gender = 'F' ORDER BY random() LIMIT 1;")
-            elif gender == "male":
-                first = cursor.execute("SELECT first FROM minotaur WHERE gender = 'M' ORDER BY random() LIMIT 1;")
-            else:
-                first = cursor.execute("SELECT first FROM minotaur WHERE gender = 'N' ORDER BY random() LIMIT 1;")
-            first = cursor.fetchall()
+        else:
             last = ''
-            first_names.append(first)
-            last_names.append(last)
+        last_names.append(last)
     
     # Close the cursor
     cursor.close()
     
     # Return the template with capitalized species, user-entered number for iterating through the list of names, first and last name lists
-    return render_template("result.html", species=species.title(), number=number, first_names=first_names, last_names=last_names)
+    return render_template("result.html", species=species.title(), first_names=first_names, last_names=last_names, number=number)
